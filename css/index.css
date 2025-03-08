@@ -1,0 +1,362 @@
+/* colour palette
+https://loading.io/color/feature/Greens-7/
+*/
+@keyframes onload {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+.centre {
+  display: flex;
+  align-items: center;
+}
+
+/* HEADER */
+#header {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 5vh;
+  background-color: white;
+  color: #005a32;
+  font-size: 20;
+  box-shadow: 1px 2px 2px 2px #878686;
+  width: 100%;
+}
+#favicon-link {
+  color: #005a32;
+  text-decoration: none;
+  animation: onload 0.75s;
+
+}
+#favicon-link:hover {
+  color: #114930;
+}
+#header-text{
+  margin-left: 8;
+}
+#kelp-logo {
+  width: 52;
+  margin-left: 24;
+}
+#heading-box {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.23)), url(../assets/bg1.jpg);
+  background-size: contain;
+  padding: 40vh 0;
+}
+.heading-box-text {
+  color: white;
+  margin-left: 12%;
+  animation: onload 0.75s;
+
+}
+#heading-box-header {
+  font-size: 4vh;
+  margin-bottom: 12px;
+  animation: onload 0.75s;
+
+}
+#restaurant-list {
+  height: 500;
+}
+#heading-box-button {
+  font-size: 16px;
+  width: 120px;
+  height: 60px;
+  margin-top: 24;
+  background-color: transparent;
+  border-radius: 12px;
+  border: 1px solid white;
+}
+#heading-box-button:hover {
+  background-color: white;
+  color: black;
+}
+
+/* SEARCH BOX */
+#search-bar {
+  margin: 4% auto;
+  width: fit-content;
+}
+#search-input {
+  padding: 8 8;
+  font-size: 16;
+  width: 280;
+  border: none;
+  outline: none;
+}
+#search-input-button {
+  background-color: transparent;
+  border: none;
+  margin-left: 4;
+}
+.button-icon:hover {
+  opacity: 50%;
+}
+#search-input-container {
+  border: 1px solid rgb(174, 173, 173);
+  justify-content: center;
+  display: flex;
+  width: 304;
+}
+#dropdown  {
+  display: inline-block;
+  position: relative;
+}
+#dropdown-button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid rgb(174, 173, 173);
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content button {
+  width: 160;
+  text-align: left;
+  border: none;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  color: black;
+  padding: 12px 16px;
+  display: block;
+}
+.dropdown-content button:hover {
+  background-color: #ddd;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+/* RESTAURANT CONTAINER*/
+#restaurant-list-container {
+  display: flex;
+  justify-content: space-around;
+}
+.filters {
+  float: left;
+  width: 10%;
+  border: 1px solid rgb(170, 170, 170);
+  margin-left: 4%;
+  height: 1004px;
+  font-family: "Poppins", sans-serif;
+}
+.filters h1,h3 {
+  margin-left: 4%;
+}
+.filters h3 {
+  font-size: 16;
+}
+.filters h1 {
+  font-size: 20;
+  margin-top: 8px;
+}
+.filters input {
+  margin-left: 4%;
+}
+.filters button {
+  margin-left: 4%;
+  background-color: white;
+  border: 1px solid rgb(167, 166, 166);
+  width: 15px;
+  height: 15px;
+  border-radius: 4px;
+}
+.filters button:hover {
+  background-color: rgb(232, 212, 212);
+}
+#filterPrice, #removeFilters, #filterReview {
+  margin-bottom: 4%;
+  margin-top: 2%;
+  height: 30;
+  width: fit-content;
+
+  padding: 4px;
+  background-color: #04AA6D;
+  color: black;
+
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+}
+#filterPrice:hover, #removeFilters:hover, #filterReview:hover {
+  background-color: #31f0aa;
+}
+#lowPriceBound, #highPriceBound, #lowReviewBound, #highReviewBound {
+  width: 50px;
+}
+#restaurant-list-time-display {
+  margin-left: 4%;
+  margin-bottom: 12px;
+  font-size: 12px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#restaurant-list {
+  width: 30%;
+  height: 1000px;
+  float: left;
+}
+.restaurant-list-element {
+  height: 200px;
+  border: 1px solid rgb(147, 146, 146);
+  border-bottom: none;
+}
+.restaurant-header {
+  margin-left: 24px;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+.restaurant-rating-container {
+  width: 60%;
+  height: fit-content;
+  margin-left: 24px;
+  margin-bottom: 8px;
+  border: 1px solid rgb(116, 116, 116);
+  display: flex;
+}
+.restaurant-rating {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 4px;
+  background-color: #13be71;
+  width: 80%;
+  height: 20px;
+}
+.restaurant-price {
+  margin-left: 24px;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 24px;
+}
+.restaurant-cuisine {
+  font-family: "Inter", sans-serif;
+  margin-left: 24px;
+  font-size: 18px;
+  border-radius: 8px;
+  background-color: rgb(220, 220, 220);
+  width: fit-content;
+  padding: 4px;
+}
+#previous-next {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+#previous-next i {
+  font-size: 20px;
+}
+#previous-next button {
+  border: 1px solid black;
+  padding: 4px 8px;
+  background-color: transparent;
+}
+#previous-next button:hover {
+  background-color: #878686;
+}
+#footer {
+  width: 100%;
+  height: 100px;
+  margin-top: 60px;
+  background-color: #005a32;
+  float: left;
+}
+/*  MAP DISPLAY */
+#map-display {
+  background-image: url(../assets/map.png);
+  background-position: center;
+  background-size: cover;
+  width: 50%;
+  height: 1004px;
+  border: 1px solid rgb(116, 116, 116);
+  float: right;
+  margin-right: 4%;
+  position: relative;
+}
+.restaurant-location-information {
+  position: absolute;
+  z-index: 1;
+}
+.location-ping:hover {
+  opacity:0.7;
+}
+.restaurant-information {
+  background-color: rgb(107, 230, 137);
+  padding: 4px;
+  font-family: "Inter", sans-serif;
+  border-radius: 5px;
+  box-shadow: 1px 3px grey;
+  text-align: left;
+  display: none;
+}
+.restaurant-information-name {
+  font-weight: bold;
+}
+#travel-ping-0, #travel-ping-1 {
+  position: absolute;
+  z-index: 1;
+}
+#location-ping-0:hover + #restaurant-information-0 {display: block;}
+#location-ping-1:hover + #restaurant-information-1 {display: block;}
+#location-ping-2:hover + #restaurant-information-2 {display: block;}
+#location-ping-3:hover + #restaurant-information-3 {display: block;}
+#location-ping-4:hover + #restaurant-information-4 {display: block;}
+
+/* SECOND MAP DISPLAY*/
+#frugal-display {
+  background-image: url(../assets/map.png);
+  background-position: center;
+  background-size: cover;
+  border: 1px solid rgb(116, 116, 116);
+  width: 50%;
+  height: 1004px;
+  float: left;
+  margin-left: 4%;
+  margin-top: 4%;
+}
+#frugal-display-text-container {
+  border: 1px solid black;
+  float: right;
+  margin-right: 4%;
+  margin-top: 4%;
+  width: 40%;
+  height: 1004px;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+#frugal-display-text {
+  margin-top: 45%;
+}
+#frugal-display-text button {
+  margin-top: 2%;
+  padding: 4px;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+}
+
+#frugal-ping-0:hover + #frugal-information-0 {display: block;}
+#frugal-ping-1:hover + #frugal-information-1 {display: block;}
+#frugal-ping-2:hover + #frugal-information-2 {display: block;}
+#frugal-ping-3:hover + #frugal-information-3 {display: block;}

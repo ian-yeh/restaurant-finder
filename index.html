@@ -1,0 +1,249 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Kelp</title>
+    <link rel="icon" href="assets/kelp-logo.png" />
+    <link rel="stylesheet" href="css/index.css" />
+    <!--ICONS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!---->
+  </head>
+  <body>
+    <div id="header" class="centre">
+      <!--header-->
+      <image src="assets/kelp-logo.png" id="kelp-logo"/>
+      <h1 id="header-text"><a href="index.html" id="favicon-link">Kelp</a></h1>
+    </div>
+    <div id="heading-box">
+      <h1 class="heading-box-text" id="heading-box-header">Chomp your way to a new meal. </h1>
+      <h3 class="heading-box-text" id="heading-box-description">Begin your search now.</h3>
+
+      <a id="heading-box-nav" href="#search-input"><button class="heading-box-text" id="heading-box-button">Search</button></a>
+    </div>
+
+    <div id="search-bar">
+      <div class="centre">
+        <div id="search-input-container">
+          <button id="search-input-button" onclick="search()"><image src="assets/search-icon.png" height="24" class="button-icon"/></button>
+          <input id="search-input" type="text" placeholder="Location, Restaurant ID or Cuisine"/>
+        </div> 
+
+        <div class="dropdown">
+          <button id="dropdown-button">Search For...</button>
+          <div class="dropdown-content">
+            <button onclick="setSearchCategory('Restaurant');">Restaurant</button>
+            <button onclick="setSearchCategory('ID');">ID</button>
+            <button onclick="setSearchCategory('X Location');">X Location</button>
+            <button onclick="setSearchCategory('Y Location');">Y Location</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p id="restaurant-list-time-display">Displayed in 0 ms, sorted in 0 ms</p>
+    <div class="restaurant-list-container">
+      <div class="filters" id="filterDiv">
+        <h1>Filters</h1>
+        <h3>Price</h3>
+          <input type="number" id="lowPriceBound"> to<input type="number" id="highPriceBound"><br>
+          <button id="filterPrice" onclick="priceFilter();">Filter Price</button>
+
+        <h3>Review</h3>
+          <input type="number" id="lowReviewBound"> to<input type="number" id="highReviewBound"><br>
+          <button id="filterReview" onclick="reviewFilter();">Filter Reviews</button>
+        
+        <h3>Cuisine</h3>
+          <button onclick="filterChinese();" id="Chinese"></button> Chinese<br>
+          <button onclick="filterBurger();" id="Burger"></button> Burger<br>
+          <button onclick="filterMexican();" id="Mexican"></button> Mexican<br>
+          <button onclick="filterKorean();" id="Korean"></button> Korean<br>
+          <button onclick="filterJapanese();" id="Japanese"></button> Japanese<br>
+          <button onclick="filterCoffee();" id="Coffee"></button> Coffee<br>
+          <button onclick="filterItalian();" id="Italian"></button> Italian<br>
+          <button onclick="filterIndian();" id="Indian"></button> Indian<br>
+          <button onclick="filterPizza();" id="Pizza"></button> Pizza<br>
+          <button id="removeFilters" onclick="removeFilters();">Remove Filters</button>
+
+        <h1>Sort by</h1>
+        <h3>Ascending Order</h3>
+          <button onclick="ascendingRestaurant();"></button> Restaurant<br>
+          <button onclick="ascendingCost();"></button> Cost<br>
+          <button onclick="ascendingX();"></button> X-Coordinate<br>
+          <button onclick="ascendingY();"></button> Y-Coordinate<br>
+          <button onclick="ascendingReview();"></button> Review<br>
+
+        <h3>Descending Order</h3>
+        <button onclick="descendingRestaurant();"></button> Restaurant<br>
+        <button onclick="descendingRestaurant();"></button> Cost<br>
+        <button onclick="descendingX();"></button> X-Coordinate<br>
+        <button onclick="descendingY();"></button> Y-Coordinate<br>
+        <button onclick="descendingReview();"></button> Review<br>
+      </div>
+
+      <div id="restaurant-list">
+
+        <div id="restaurant-container-1" class="restaurant-list-element">
+          <h1 id="restaurant-header-1" class="restaurant-header"></h1>
+
+          <div class="restaurant-rating-container">
+            <div id="restaurant-rating-1" class="restaurant-rating"></div>
+          </div>
+
+          <h5 id="restaurant-price-1" class="restaurant-price"></h5>
+          <p id="restaurant-cuisine-1" class="restaurant-cuisine"></p>
+        </div>
+
+        <div id="restaurant-container-2" class="restaurant-list-element">
+          <h1 id="restaurant-header-2" class="restaurant-header"></h1>
+
+          <div class="restaurant-rating-container">
+            <div id="restaurant-rating-2" class="restaurant-rating"></div>
+          </div>
+
+          <h5 id="restaurant-price-2" class="restaurant-price"></h5>
+          <p id="restaurant-cuisine-2" class="restaurant-cuisine"></p>
+        </div>
+
+        <div id="restaurant-container-3" class="restaurant-list-element">
+          <h1 id="restaurant-header-3" class="restaurant-header"></h1>
+
+          <div class="restaurant-rating-container">
+            <div id="restaurant-rating-3" class="restaurant-rating"></div>
+          </div>
+
+          <h5 id="restaurant-price-3" class="restaurant-price"></h5>
+          <p id="restaurant-cuisine-3" class="restaurant-cuisine"></p>
+        </div>
+
+        <div id="restaurant-container-4" class="restaurant-list-element">
+          <h1 id="restaurant-header-4" class="restaurant-header"></h1>
+
+          <div class="restaurant-rating-container">
+            <div id="restaurant-rating-4" class="restaurant-rating"></div>
+          </div>
+
+          <h5 id="restaurant-price-4" class="restaurant-price"></h5>
+          <p id="restaurant-cuisine-4" class="restaurant-cuisine"></p>
+        </div>
+
+        <div id="restaurant-container-5" class="restaurant-list-element" style="border-bottom: 1px solid rgb(116, 116, 116);">
+          <h1 id="restaurant-header-5" class="restaurant-header"></h1>
+
+          <div class="restaurant-rating-container">
+            <div id="restaurant-rating-5" class="restaurant-rating"></div>
+          </div>
+
+          <h5 id="restaurant-price-5" class="restaurant-price"></h5>
+          <p id="restaurant-cuisine-5" class="restaurant-cuisine"></p>
+        </div>
+        <div id="previous-next">
+          <button onclick="last();"><i class="fa-solid fa-chevron-left"></i></button>
+          <button onclick="next();"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+
+      <div id="map-display">
+        <div id="restaurant-location-information-0" class="restaurant-location-information">
+          <image src="/assets/locationPing.png" class="location-ping" width="44" id="location-ping-0"> <!--<a href='https://pngtree.com/freepng/map_4900080.html'>png image from pngtree.com/</a>-->
+          <div id="restaurant-information-0" class="restaurant-information">
+            <p class="restaurant-information-name" id="restaurant-name-0"></p>
+            <p class="restaurant-info" id="restaurant-info-0"></p>
+          </div>
+        </div>
+
+        <div id="restaurant-location-information-1" class="restaurant-location-information">
+          <image src="/assets/locationPing.png" class="location-ping" width="44" id="location-ping-1">
+          <div id="restaurant-information-1" class="restaurant-information">
+            <p class="restaurant-information-name" id="restaurant-name-1"></p>
+            <p class="restaurant-info" id="restaurant-info-1"></p>
+          </div>
+        </div>
+        
+        <div id="restaurant-location-information-2" class="restaurant-location-information">
+          <image src="/assets/locationPing.png" class="location-ping" width="44" id="location-ping-2">
+          <div id="restaurant-information-2" class="restaurant-information">
+            <p class="restaurant-information-name" id="restaurant-name-2"></p>
+            <p class="restaurant-info" id="restaurant-info-2"></p>
+          </div>
+        </div>
+
+        <div id="restaurant-location-information-3" class="restaurant-location-information">
+          <image src="/assets/locationPing.png" class="location-ping" width="44" id="location-ping-3">
+          <div id="restaurant-information-3" class="restaurant-information">
+            <p class="restaurant-information-name" id="restaurant-name-3"></p>
+            <p class="restaurant-info" id="restaurant-info-3"></p>
+          </div>
+        </div>
+
+        <div id="restaurant-location-information-4" class="restaurant-location-information">
+          <image src="/assets/locationPing.png" class="location-ping" width="44" id="location-ping-4">
+          <div id="restaurant-information-4" class="restaurant-information">
+            <p class="restaurant-information-name" id="restaurant-name-4"></p>
+            <p class="restaurant-info" id="restaurant-info-4"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="frugal-display">
+
+      <div id="frugal-location-information-0" class="restaurant-location-information">
+        <image src="/assets/locationPing.png" class="location-ping" width="44" id="frugal-ping-0" hidden="true"> <!--<a href='https://pngtree.com/freepng/map_4900080.html'>png image from pngtree.com/</a>-->
+        <div id="frugal-information-0" class="restaurant-information">
+          <p class="restaurant-information-name" id="frugal-name-0"></p>
+          <p class="restaurant-info" id="frugal-info-0"></p>
+        </div>
+      </div>
+
+      <div id="frugal-location-information-1" class="restaurant-location-information">
+        <image src="/assets/locationPing.png" class="location-ping" width="44" id="frugal-ping-1" hidden="true">
+        <div id="frugal-information-1" class="restaurant-information">
+          <p class="restaurant-information-name" id="frugal-name-1"></p>
+          <p class="restaurant-info" id="frugal-info-1"></p>
+        </div>
+      </div>
+      
+      <div id="frugal-location-information-2" class="restaurant-location-information">
+        <image src="/assets/locationPing.png" class="location-ping" width="44" id="frugal-ping-2" hidden="true">
+        <div id="frugal-information-2" class="restaurant-information">
+          <p class="restaurant-information-name" id="frugal-name-2"></p>
+          <p class="restaurant-info" id="frugal-info-2"></p>
+        </div>
+      </div>
+
+      <div id="frugal-location-information-3" class="restaurant-location-information">
+        <image src="/assets/locationPing.png" class="location-ping" width="44" id="frugal-ping-3" hidden="true">
+        <div id="frugal-information-3" class="restaurant-information">
+          <p class="restaurant-information-name" id="frugal-name-3"></p>
+          <p class="restaurant-info" id="frugal-info-3"></p>
+        </div>
+      </div>
+
+      <image src="/assets/greenPing.png" width="30" id="travel-ping-0" hidden="true">
+      <image src="/assets/greenPing.png" width="30" id="travel-ping-1" hidden="true">
+    </div>
+    
+    <div id="frugal-display-text-container">
+      <div id="frugal-display-text">
+        <h1>On a Budget?</h1>
+        <p>Click the map to set your starting point and destination.</p>
+
+        <button onclick="removeMapPoints();">Remove Points</button>
+      </div>
+    </div>
+
+    <div id="footer"></div>
+
+    <!--Do not move the line below-->
+    <script src="./dist/DO_NOT_TOUCH.js"></script>
+    <!--Do not move the line above-->
+    <script src="./dist/index.js"></script>
+  </body>
+</html>
