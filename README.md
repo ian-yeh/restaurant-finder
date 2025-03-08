@@ -1,4 +1,4 @@
-### Kelp, a Restaurant Search Website
-# Check ratings, or sort by location.
+## Kelp, a Restaurant Finder
+### Check ratings, or sort by location.
 
 A project by Ian, Declan and Amir.
